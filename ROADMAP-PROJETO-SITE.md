@@ -108,7 +108,7 @@ Congelar o escopo institucional da v1 e consolidar o conteúdo-base que alimenta
 
 ### Status
 
-`Em execução`
+`Concluído`
 
 ---
 
@@ -139,6 +139,10 @@ Transformar o template validado em um conjunto completo de páginas de áreas.
 
 - todas as áreas da v1 existem e seguem o mesmo padrão estrutural
 - nenhuma área depende de texto genérico ou placeholder evidente
+
+### Status
+
+`Em execução`
 
 ---
 
@@ -285,4 +289,4 @@ Este roadmap deve ser usado para priorização. Qualquer mudança relevante de e
 
 ## Próxima Ação Recomendada
 
-Executar a `Sprint 2 — Escopo Final e Conteúdo-Matriz` antes de abrir novas frentes de página. Essa sprint é a que mais reduz retrabalho e a que melhor protege o projeto contra drift.
+Executar a `Sprint 3 — Áreas de Atuação Completas` até fechar todas as páginas de área previstas na v1. Em seguida, avançar diretamente para a `Sprint 4 — Equipe Completa`.

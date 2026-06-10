@@ -11,7 +11,8 @@ Organizar, versionar e evoluir o site novo do escritório com uma estrutura clar
 O projeto já possui:
 
 - home institucional
-- primeira página de área
+- página institucional do escritório
+- três páginas de área
 - página geral de profissionais
 - primeira página individual de profissional
 - páginas jurídicas mínimas
@@ -38,6 +39,7 @@ aviso-de-cookies.html
 - `REGRAS-ANTIDRIFT.md`
 - `SPRINT-2-ESCOPO-V1.md`
 - `MATRIZ-DE-CONTEUDO-V1.md`
+- `AUDITORIA-PROJETO-V1.md`
 - `CHANGELOG.md`
 - `SITE-ESTRUTURA.md`
 
@@ -66,6 +68,6 @@ Como o projeto é estático nesta fase, basta abrir `index.html` localmente no n
 Prioridades:
 
 1. criar as demais páginas de áreas
-2. criar `escritorio.html`
-3. criar os perfis individuais restantes
-4. revisar navegação e coerência interna
+2. criar os perfis individuais restantes
+3. revisar navegação e coerência interna
+4. preparar a camada técnica de publicação

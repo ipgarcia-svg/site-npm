@@ -6,11 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `areas/tributario.html` as the v1 tax practice page.
+- `areas/contratual.html` as the v1 contract law practice page.
+- `AUDITORIA-PROJETO-V1.md` with a publication-readiness review of the repository and site scope.
+
+### Changed
+
+- Updated the home page so the tax and contract practice cards point to real internal pages.
+- Updated project documentation to reflect that `escritorio.html` is already part of the active v1 base.
+- Updated the roadmap status to show Sprint 2 as complete and Sprint 3 as in progress.
+
 ### Planned
 
 - Create the remaining area pages for the v1 sitemap.
 - Create the remaining individual professional profile pages.
-- Add `escritorio.html` and redistribute institutional content from the home page.
 - Add technical publication assets for deploy readiness, including metadata, sitemap, and robots instructions.
 
 ## [0.1.0] - 2026-06-10
