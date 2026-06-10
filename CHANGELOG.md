@@ -10,12 +10,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `areas/tributario.html` as the v1 tax practice page.
 - `areas/contratual.html` as the v1 contract law practice page.
+- `areas/arbitragem.html` as the v1 arbitration and mediation page.
+- `areas/imobiliario.html` as the v1 real estate practice page.
+- `areas/patrimonial-sucessorio.html` as the v1 wealth and succession planning page.
+- `areas/contencioso-civel.html` as the v1 civil litigation page.
+- `areas/familia-sucessoes.html` as the v1 family and succession page.
 - `AUDITORIA-PROJETO-V1.md` with a publication-readiness review of the repository and site scope.
 - `MATRIZ-INTERNA-AREAS-EQUIPE.md` as the internal editorial rule for associating professionals with practice areas.
 
 ### Changed
 
 - Updated the home page so the tax and contract practice cards point to real internal pages.
+- Updated the home page so all eight practice-area cards now point to real internal pages.
 - Updated project documentation to reflect that `escritorio.html` is already part of the active v1 base.
 - Updated the roadmap status to show Sprint 2 as complete and Sprint 3 as in progress.
 
