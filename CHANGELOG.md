@@ -1,0 +1,42 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [Unreleased]
+
+### Planned
+
+- Create the remaining area pages for the v1 sitemap.
+- Create the remaining individual professional profile pages.
+- Add `escritorio.html` and redistribute institutional content from the home page.
+- Add technical publication assets for deploy readiness, including metadata, sitemap, and robots instructions.
+
+## [0.1.0] - 2026-06-10
+
+### Added
+
+- Canonical home page in `index.html`.
+- Base page for the corporate law practice in `areas/societario.html`.
+- Team listing page in `profissionais/index.html`.
+- First individual profile page in `profissionais/luiz-novaes.html`.
+- Shared CSS and JS asset structure under `assets/`.
+- Institutional privacy and cookies pages.
+- Project roadmap, site structure guide, Sprint 2 scope document, and v1 content matrix.
+- Anti-drift governance document for editorial, structural, and versioning consistency.
+- Git repository initialization, remote connection, and first published history.
+
+### Changed
+
+- Rewrote institutional positioning to align more closely with the office folder and validated public references.
+- Reorganized the project so the active site base is separated from raw source materials and historical mockups.
+- Standardized names, image paths, and active project structure.
+
+### Deprecated
+
+- Historical HTML mockups are no longer the base for ongoing evolution.
+
+### Removed
+
+- Legacy and raw-reference materials from the active versioned core of the project.
