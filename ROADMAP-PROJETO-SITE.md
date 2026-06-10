@@ -108,7 +108,7 @@ Congelar o escopo institucional da v1 e consolidar o conteúdo-base que alimenta
 
 ### Status
 
-`Próxima sprint recomendada`
+`Em execução`
 
 ---
 
