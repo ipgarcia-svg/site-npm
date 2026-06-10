@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `areas/contencioso-civel.html` as the v1 civil litigation page.
 - `areas/familia-sucessoes.html` as the v1 family and succession page.
 - Individual profile pages for `Fábio Plantulli`, `André Manzoli`, `Thaís de Vilhena Moraes Silva`, `Tathiana da Fonseca Fiuza Dittmers`, `Iago Pires Garcia`, and `Paola de Oliveira Giannotti`.
+- `robots.txt`, `sitemap.xml`, and `404.html` as the minimum technical publication layer for the v1 site.
 - `AUDITORIA-PROJETO-V1.md` with a publication-readiness review of the repository and site scope.
 - `MATRIZ-INTERNA-AREAS-EQUIPE.md` as the internal editorial rule for associating professionals with practice areas.
 
@@ -26,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Updated the home page and team page so individual professional cards and names point to real profile pages.
 - Expanded `escritorio.html` with a stronger institutional-positioning section grounded in the support reports and folder.
 - Replaced em dashes with en dashes across the active site base, governance documents, and text-based assets for typographic consistency.
+- Added meta descriptions, canonical links, Open Graph tags, and favicon references across the active public pages.
 - Updated project documentation to reflect that `escritorio.html` is already part of the active v1 base.
 - Updated the roadmap status to show Sprint 2 as complete and Sprint 3 as in progress.
 
