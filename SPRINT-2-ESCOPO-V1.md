@@ -1,4 +1,4 @@
-# Sprint 2 — Escopo Final da V1
+# Sprint 2 – Escopo Final da V1
 
 ## Objetivo
 

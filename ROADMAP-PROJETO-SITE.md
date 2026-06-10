@@ -1,4 +1,4 @@
-# Roadmap Executivo — Novo Site NPM
+# Roadmap Executivo – Novo Site NPM
 
 ## Objetivo
 
@@ -51,7 +51,7 @@ Esse documento deve ser tratado como referência obrigatória para decisões de 
 
 ---
 
-## Sprint 1 — Base Oficial e Governança
+## Sprint 1 – Base Oficial e Governança
 
 ### Objetivo
 
@@ -79,7 +79,7 @@ Fechar a base canônica do projeto, estruturar o repositório corretamente e est
 
 ---
 
-## Sprint 2 — Escopo Final e Conteúdo-Matriz
+## Sprint 2 – Escopo Final e Conteúdo-Matriz
 
 ### Objetivo
 
@@ -112,7 +112,7 @@ Congelar o escopo institucional da v1 e consolidar o conteúdo-base que alimenta
 
 ---
 
-## Sprint 3 — Áreas de Atuação Completas
+## Sprint 3 – Áreas de Atuação Completas
 
 ### Objetivo
 
@@ -146,7 +146,7 @@ Transformar o template validado em um conjunto completo de páginas de áreas.
 
 ---
 
-## Sprint 4 — Equipe Completa
+## Sprint 4 – Equipe Completa
 
 ### Objetivo
 
@@ -172,7 +172,7 @@ Dar corpo institucional à página de equipe e aos perfis individuais.
 
 ---
 
-## Sprint 5 — Escritório, Posicionamento e Publicações
+## Sprint 5 – Escritório, Posicionamento e Publicações
 
 ### Objetivo
 
@@ -200,7 +200,7 @@ Expandir a camada institucional do site sem inflar a home.
 
 ---
 
-## Sprint 6 — Componentização e Arquitetura Sustentável
+## Sprint 6 – Componentização e Arquitetura Sustentável
 
 ### Objetivo
 
@@ -229,7 +229,7 @@ Se a expansão do site se confirmar, a migração para `Astro` passa a ser recom
 
 ---
 
-## Sprint 7 — Refinamento Premium, SEO e Publicação
+## Sprint 7 – Refinamento Premium, SEO e Publicação
 
 ### Objetivo
 
@@ -289,4 +289,4 @@ Este roadmap deve ser usado para priorização. Qualquer mudança relevante de e
 
 ## Próxima Ação Recomendada
 
-Executar a `Sprint 3 — Áreas de Atuação Completas` até fechar todas as páginas de área previstas na v1. Em seguida, avançar diretamente para a `Sprint 4 — Equipe Completa`.
+Executar a `Sprint 3 – Áreas de Atuação Completas` até fechar todas as páginas de área previstas na v1. Em seguida, avançar diretamente para a `Sprint 4 – Equipe Completa`.

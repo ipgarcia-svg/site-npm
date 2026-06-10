@@ -1,4 +1,4 @@
-# Regras Anti-Drift — Novo Site NPM
+# Regras Anti-Drift – Novo Site NPM
 
 ## Objetivo
 

@@ -1,4 +1,4 @@
-# Matriz Interna — Áreas e Equipe
+# Matriz Interna – Áreas e Equipe
 
 ## Objetivo
 

@@ -1,5 +1,5 @@
 :root {
-    /* Palette — boutique editorial */
+    /* Palette – boutique editorial */
     --ivory: oklch(0.972 0.006 85);
     --ivory-2: oklch(0.945 0.008 85);
     --ivory-3: oklch(0.90 0.010 85);
@@ -560,7 +560,7 @@
     height: 56px;
     width: auto;
     display: block;
-    /* Logo é marrom sobre transparente — neste rodapé escuro, clareia para ivory */
+    /* Logo é marrom sobre transparente – neste rodapé escuro, clareia para ivory */
     filter: brightness(0) invert(1) opacity(0.92);
   }
   .footer-tag {

@@ -24,6 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Updated the home page so the tax and contract practice cards point to real internal pages.
 - Updated the home page so all eight practice-area cards now point to real internal pages.
 - Updated the home page and team page so individual professional cards and names point to real profile pages.
+- Expanded `escritorio.html` with a stronger institutional-positioning section grounded in the support reports and folder.
+- Replaced em dashes with en dashes across the active site base, governance documents, and text-based assets for typographic consistency.
 - Updated project documentation to reflect that `escritorio.html` is already part of the active v1 base.
 - Updated the roadmap status to show Sprint 2 as complete and Sprint 3 as in progress.
 

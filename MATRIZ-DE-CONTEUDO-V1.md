@@ -1,4 +1,4 @@
-# Matriz de Conteúdo — V1 do Site NPM
+# Matriz de Conteúdo – V1 do Site NPM
 
 ## Objetivo
 
@@ -82,7 +82,7 @@ Explicar com objetividade o escopo da prática, a forma de atuação do escritó
 - perguntas frequentes longas
 - publicações falsas ou sem base real
 
-## 4. Profissionais — Página Geral
+## 4. Profissionais – Página Geral
 
 ### Função
 
@@ -110,7 +110,7 @@ Organizar a equipe por hierarquia e permitir acesso rápido aos perfis individua
 - biografias muito assimétricas
 - detalhamento excessivo de currículo em página-listagem
 
-## 5. Profissional — Página Individual
+## 5. Profissional – Página Individual
 
 ### Função
 

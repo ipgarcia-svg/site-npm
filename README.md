@@ -64,7 +64,7 @@ Como o projeto é estático nesta fase, basta abrir `index.html` localmente no n
 
 ## Próxima Sprint Recomendada
 
-`Sprint 3 — Áreas de Atuação Completas`
+`Sprint 3 – Áreas de Atuação Completas`
 
 Prioridades:
 

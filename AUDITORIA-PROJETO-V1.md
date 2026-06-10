@@ -1,4 +1,4 @@
-# Auditoria do Projeto — V1
+# Auditoria do Projeto – V1
 
 ## Referência Externa Usada
 
