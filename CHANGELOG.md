@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `areas/tributario.html` as the v1 tax practice page.
 - `areas/contratual.html` as the v1 contract law practice page.
 - `AUDITORIA-PROJETO-V1.md` with a publication-readiness review of the repository and site scope.
+- `MATRIZ-INTERNA-AREAS-EQUIPE.md` as the internal editorial rule for associating professionals with practice areas.
 
 ### Changed
 
