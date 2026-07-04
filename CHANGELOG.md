@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Fase 1 editorial pass (12_fonte ban-list) on index, escritorio and the 8 practice-area pages: decorative triads and antithesis scaffolds rewritten, "altamente" removed, the leaked internal editorial guideline in the Publicações heading replaced, and the uniform "Discutir uma demanda em [área]" CTA reformulated as one concrete client question per area.
 - Replaced all 58 `<image-slot>` mockup placeholders with real `<img>` elements (descriptive alt, intrinsic width/height, lazy loading below the fold) and deleted `assets/js/image-slot.js` (Fase 0.1 of ROADMAP-ANTI-IA; templates-npm ADR-009).
 - Removed the decorative PT/EN language toggle and its CSS until an English version exists (Fase 0.2).
 - Added `scripts/preflight.py` with a `--tolerar` flag and a GitHub Actions workflow running it on pushes and PRs (F4 tolerated as declared Fase 2 debt).
