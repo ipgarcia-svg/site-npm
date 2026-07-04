@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- `assets/css/identidade.css` with the signature element (linha de autuação, per templates-npm ADR-011): a mono metadata line atop each page title with page-specific verifiable data and the constant "DESDE 1989" closure, replacing decorative numbering (page-hero "NPM"/"Área 0X" markers, index card numbers, roman section numerals).
 - `assets/css/tokens.css` as the single visual-token source aligned with the `templates-npm` V8.2.9 identity (ink/navy palette, warm paper surfaces, display parameters).
 - `contato.html` with a Netlify Forms contact form, LGPD notice, and office contact data.
 - `_redirects` mapping all legacy Wix URLs (practice-area slugs, `/areas-de-atuacao`, `/blog`, `/contato`) to the new site with 301s.
