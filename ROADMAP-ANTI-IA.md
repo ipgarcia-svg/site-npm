@@ -271,6 +271,8 @@ AVISO  W3  alt vazio ou genérico em imagem significativa (4.4)
 AVISO  W4  higiene: z-index arbitrário, JS órfão, transição sem
            prefers-reduced-motion (4.3/4.4)
 AVISO  W5  title/meta description/og ausentes na página (4.3)
+AVISO  W6  risco ético OAB no copy — preço, promessa, especialista,
+           urgência (regra transversal 7)
 ```
 
 Uso local: `python3 scripts/preflight.py` (exit ≠ 0 se houver FALHA).
@@ -288,6 +290,10 @@ repositório reprova por definição, pois os bloqueadores existem.
 5. Cada fase = um PR; aprovação humana de copy registrada no PR.
 6. Nenhum PR das Fases 1–4 mergeia fazendo o `preflight.py` regredir
    (novas falhas em relação à base do PR).
+7. Todo copy público do site — CTA, lead, título, microcopy — passa pela
+   revisão ética do `06_agente_revisor_etico_oab` (Provimento 205/2021 e
+   CED) antes do merge, com registro componente → risco → norma no PR.
+   A triagem W6 do preflight é apoio mecânico, não substitui a revisão.
 
 ## Sequenciamento sugerido
 

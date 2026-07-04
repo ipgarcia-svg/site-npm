@@ -175,6 +175,23 @@ def main():
         if faltas:
             avisos["W5"].append(f"{rel(p)}: falta {', '.join(faltas)}")
 
+    # ── W6: triagem de risco ético OAB (Prov. 205/2021) — padrões estreitos
+    rx_etica = [
+        (r"custos?\s+competitiv", "apelo de preço (mercantilização)"),
+        (r"resultados?\s+(tang[íi]ve|comprovad|garantid)", "promessa de resultado"),
+        (r"garantimos|[êe]xito\s+garantido|sucesso\s+garantido", "promessa de resultado"),
+        (r"consulta\s+gratuita|sem\s+custo|or[çc]amento", "mercantilização"),
+        (r"especialistas?\s+em|contencioso\s+especializado", "título de especialista sem lastro"),
+        (r"melhor\s+(desfecho|resultado)|l[íi]der(es)?\s+(de|em|no)", "superlativo/comparação"),
+        (r"agora\s+mesmo|n[ãa]o\s+perca|[úu]ltima\s+chance", "urgência/pressão"),
+    ]
+    for p in pgs:
+        t = texto_visivel(open(p, encoding="utf-8").read())
+        for rx, nome in rx_etica:
+            for m in re.finditer(rx, t, re.I):
+                trecho = t[max(0, m.start() - 25):m.end() + 25].strip()
+                avisos["W6"].append(f"{rel(p)}: [{nome}] …{trecho}…")
+
     # ── Relatório
     print(f"Pre-flight — {len(pgs)} páginas públicas auditadas\n")
     nomes = {
@@ -189,6 +206,7 @@ def main():
         "W3": "alt vazio ou genérico em imagem significativa (4.4)",
         "W4": "higiene: z-index/JS órfão/motion sem reduced-motion (4.3/4.4)",
         "W5": "title/meta description/og ausentes (4.3)",
+        "W6": "risco ético OAB no copy (Prov. 205/2021; revisar pelo 06_fonte)",
     }
     for cod in sorted(nomes):
         itens = falhas.get(cod) if cod.startswith("F") else avisos.get(cod)
