@@ -506,6 +506,8 @@
     color: var(--ink);
     max-width: 50ch;
   }
+  .pub h4 a { text-underline-offset: 3px; }
+  .pub h4 a:hover { text-decoration: underline; }
   .pub .tag {
     font-size: 11px;
     text-transform: uppercase;
