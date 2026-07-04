@@ -11,6 +11,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # F4 (cota de eyebrows) é débito conhecido da Fase 2 do
-      # ROADMAP-ANTI-IA; a tolerância sai no PR daquela fase.
-      - run: python3 scripts/preflight.py --tolerar F4
+      # Débito da Fase 2 (F4) quitado no PR feat/fase2-estrutura;
+      # exceções remanescentes ficam documentadas dentro do próprio
+      # preflight.py (EXCECOES_F4), não como tolerância genérica.
+      - run: python3 scripts/preflight.py
