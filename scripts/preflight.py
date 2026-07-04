@@ -5,8 +5,10 @@ Audita as páginas públicas contra as regras mecanizáveis do
 ROADMAP-ANTI-IA e dos ADRs de identidade do templates-npm
 (ADR-006/007/008/010/011).
 
-Uso:  python3 scripts/preflight.py
-Saída: relatório por página; exit code = nº de categorias com FALHA.
+Uso:  python3 scripts/preflight.py [--tolerar F4,F5]
+Saída: relatório por página; exit code = nº de categorias com FALHA
+       (categorias toleradas são rebaixadas a AVISO no exit code,
+       para débito conhecido de fase ainda não executada).
 """
 
 import glob
@@ -201,7 +203,14 @@ def main():
         if len(itens) > 8:
             print(f"          · … e mais {len(itens) - 8}")
 
-    n_falhas = len(falhas)
+    tolerar = set()
+    for i, a in enumerate(sys.argv):
+        if a == "--tolerar" and i + 1 < len(sys.argv):
+            tolerar = set(x.strip() for x in sys.argv[i + 1].split(","))
+    if tolerar & set(falhas):
+        print(f"\nToleradas nesta execução (débito de fase): "
+              f"{sorted(tolerar & set(falhas))}")
+    n_falhas = len(set(falhas) - tolerar)
     print(f"\nResultado: {n_falhas} categoria(s) com FALHA, "
           f"{sum(len(v) for v in avisos.values())} aviso(s).")
     sys.exit(n_falhas)
