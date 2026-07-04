@@ -120,7 +120,7 @@ embarcado no site publicado. Prioridade máxima.
 
 ## Fase 2 – Estrutura e design: quebrar o molde único
 
-### 2.1 Variar o molde de abertura das páginas internas
+### 2.1 Variar o molde de abertura das páginas internas — **concluído**
 - **Evidência**: 12 páginas usam o mesmo bloco `page-hero` com `num` ("NPM"),
   h1 e `page-hero-lead` com `label`; 11 repetem o mesmo lead estruturado.
 - **Ação**: manter o molde como base, mas diferenciar por tipo de página:
@@ -128,7 +128,10 @@ embarcado no site publicado. Prioridade máxima.
   fato biográfico); escritório abre com a história (1989). O conteúdo dita a
   abertura, não o template.
 - **Aceite**: nenhum par de tipos de página (área × perfil × institucional)
-  com abertura estruturalmente idêntica.
+  com abertura estruturalmente idêntica. **Concluído** — áreas abrem com a
+  situação do cliente (lead reordenado, firma em segundo plano); perfis
+  abrem com retrato + fato biográfico verificável (formação/OAB) antes do
+  resumo de áreas; escritório já abria com 1989, verificado sem alteração.
 - **Adendos mensuráveis (V1.1)**:
   - página com N seções usa ao menos 4 famílias de layout distintas quando
     N ≥ 8; nenhuma família se repete em seções consecutivas além de 2;
@@ -146,12 +149,17 @@ embarcado no site publicado. Prioridade máxima.
   cada 3 seções por página (teto = ⌈seções/3⌉). Checagem mecânica: contar
   rótulos em caps com tracking acima de títulos; acima do teto, reprova.
 
-### 2.3 Hierarquizar o grid de áreas
+### 2.3 Hierarquizar o grid de áreas — **concluído**
 - **Evidência**: 8 cards idênticos em grid regular no index.
 - **Ação**: dar peso distinto às 2–3 áreas-âncora do escritório (definir com
   os sócios — a confirmar) e agrupar as demais; quebra de simetria
   intencional.
 - **Aceite**: o grid comunica prioridade real do escritório, não uniformidade.
+  **Concluído** — áreas-âncora definidas com os sócios (Societário,
+  Patrimonial e Sucessório, Contratual, Arbitragem — maior centralidade
+  cruzada entre "Temas correlatos" + confirmação direta), renderizadas
+  como 4 cards grandes (2×2); as demais 4 em lista secundária compacta,
+  diferenciada por tipografia e espaço, sem elevação decorativa.
 
 ### 2.4 Assinatura tipográfica própria nos metadados
 - **Evidência**: JetBrains Mono carregado e não utilizado; metadados (datas,
