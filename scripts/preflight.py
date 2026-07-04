@@ -135,6 +135,44 @@ def main():
             if not (mid and f'for="{mid.group(1)}"' in s):
                 avisos["W2"].append(f"{rel(p)}: {tag[:70]}…")
 
+    # ── W3: alt vazio/genérico em imagem significativa (roadmap 4.4)
+    for p in pgs:
+        s = open(p, encoding="utf-8").read()
+        for m in re.finditer(r"<img\b[^>]*>", s):
+            tag = m.group(0)
+            malt = re.search(r'alt="([^"]*)"', tag)
+            alt = (malt.group(1).strip().lower() if malt else None)
+            if alt is None or alt in {"", "imagem", "foto", "image", "logo"}:
+                avisos["W3"].append(f"{rel(p)}: {tag[:70]}…")
+
+    # ── W4: higiene — z-index arbitrário, JS órfão, motion sem reduced-motion
+    for css in glob.glob(os.path.join(RAIZ, "assets/css/*.css")):
+        conteudo = open(css, encoding="utf-8").read()
+        for z in re.findall(r"z-index:\s*(\d{3,})", conteudo):
+            if int(z) >= 999:
+                avisos["W4"].append(f"{rel(css)}: z-index {z}")
+        if re.search(r"\b(transition|animation)\s*:", conteudo) and \
+                "prefers-reduced-motion" not in conteudo:
+            avisos["W4"].append(f"{rel(css)}: transição/animação sem "
+                                "prefers-reduced-motion")
+    for p in pgs:
+        s = open(p, encoding="utf-8").read()
+        for src in re.findall(r'<script[^>]*src="([^"]+)"', s):
+            alvo = os.path.normpath(os.path.join(os.path.dirname(p), src))
+            if not src.startswith("http") and not os.path.exists(alvo):
+                avisos["W4"].append(f"{rel(p)}: script órfão {src}")
+
+    # ── W5: title/meta description/og ausentes (roadmap 4.3)
+    for p in pgs:
+        s = open(p, encoding="utf-8").read()
+        faltas = [t for t, rx in [
+            ("title", r"<title>[^<]+</title>"),
+            ("meta description", r'<meta name="description"'),
+            ("og:title", r'property="og:title"'),
+        ] if not re.search(rx, s)]
+        if faltas:
+            avisos["W5"].append(f"{rel(p)}: falta {', '.join(faltas)}")
+
     # ── Relatório
     print(f"Pre-flight — {len(pgs)} páginas públicas auditadas\n")
     nomes = {
@@ -146,6 +184,9 @@ def main():
         "F6": "autuação/decoração irregular (ADR-010/011)",
         "W1": "ban-list de copy (Fase 1)",
         "W2": "placeholder sem label (4.1)",
+        "W3": "alt vazio ou genérico em imagem significativa (4.4)",
+        "W4": "higiene: z-index/JS órfão/motion sem reduced-motion (4.3/4.4)",
+        "W5": "title/meta description/og ausentes (4.3)",
     }
     for cod in sorted(nomes):
         itens = falhas.get(cod) if cod.startswith("F") else avisos.get(cod)

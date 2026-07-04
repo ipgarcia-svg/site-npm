@@ -1,4 +1,4 @@
-# ROADMAP – Descaracterização de "site gerado por IA" – V1.1
+# ROADMAP – Descaracterização de "site gerado por IA" – V1.2
 
 Objetivo: eliminar do site público todos os sinais — de texto, design, estrutura e
 tooling — que o identificam como produção assistida por IA ou template genérico.
@@ -6,10 +6,10 @@ Régua editorial de referência: `templates-npm/12_fonte_aberturas_e_linguagem_n
 (ban-list de andaimes de antítese, tríades decorativas, pontuação de efeito e
 vocabulário-clichê), aplicada aqui ao meio "site institucional".
 
-Calibração externa (V1.1): regras mecânicas do taste-skill
-(tasteskill.dev) incorporadas onde compatíveis com os ADRs de identidade do
-`templates-npm`. Em conflito, os ADRs prevalecem — skill é calibração,
-ADR é autoridade.
+Calibração externa: regras mecânicas do taste-skill (tasteskill.dev)
+incorporadas na V1.1; protocolo de upgrade do redesign-skill incorporado na
+V1.2. Em conflito, os ADRs de identidade do `templates-npm` prevalecem —
+skill é calibração, ADR é autoridade.
 
 Critério geral de pronto: um leitor atento (advogado concorrente, jornalista,
 cliente sofisticado) não encontra nenhum padrão listado abaixo em nenhuma página
@@ -207,10 +207,13 @@ embarcado no site publicado. Prioridade máxima.
 ## Fase 4 – Acabamento funcional
 
 ### 4.1 Microcopy funcional no formulário de contato
-- **Ação**: mensagens de erro específicas por campo, página/estado de
-  sucesso após envio ("Mensagem recebida. Retornamos em até X dia útil" —
-  prazo a confirmar com o escritório), sem tom de desculpas.
-- **Aceite**: fluxo completo enviar → confirmar testado em produção.
+- **Ação**: validação client-side (e-mail, obrigatórios) antes do envio;
+  mensagens de erro específicas por campo, abaixo do campo; página/estado
+  de sucesso após envio ("Mensagem recebida. Retornamos em até X dia útil"
+  — prazo a confirmar com o escritório), sem tom de desculpas; nunca
+  placeholder no lugar de label.
+- **Aceite**: fluxo completo enviar → validar → confirmar testado em
+  produção, com erros simulados.
 
 ### 4.2 Estados vazios e 404 com voz própria
 - **Evidência**: 404.html existe (conteúdo a auditar); seções que dependem
@@ -221,8 +224,30 @@ embarcado no site publicado. Prioridade máxima.
 ### 4.3 Higiene técnica que denuncia geração
 - **Ação**: revisar comentários de código servidos ao público (ex.: banners
   `─────────── Footer ───────────`), atributos vazios, `style` inline
-  remanescentes, alts genéricos; padronizar.
-- **Aceite**: view-source não revela scaffolding nem comentários de molde.
+  remanescentes; HTML semântico (`nav`, `main`, `section`, `footer`); zero
+  código morto servido (JS órfão, blocos comentados); escala de z-index
+  definida (nada de `9999`); `title`, `meta description` e og:tags
+  completos por página.
+- **Aceite**: view-source não revela scaffolding nem comentários de molde;
+  checagens W4/W5 do preflight limpas.
+
+### 4.4 Acessibilidade estrutural (V1.2)
+- **Ação**: link "pular para o conteúdo" no topo de cada página;
+  `:focus-visible` legível em todo elemento interativo; `alt` descritivo
+  real em toda imagem com significado (nunca vazio ou "imagem/foto");
+  `prefers-reduced-motion` respeitado onde houver transição/animação;
+  contraste AA em textos, botões e formulário.
+- **Aceite**: navegação completa por teclado sem beco; checagem W3 limpa;
+  auditoria de contraste sem reprovação.
+
+### 4.5 Estados de interação sóbrios (V1.2)
+- **Ação**: hover/active/focus consistentes e discretos em links, cards e
+  botões (ex.: deslocamento de 1px no `:active`); nenhum efeito de
+  vocabulário de site de prêmio (parallax, spotlight, grain, scroll
+  cinemático, máscaras de vídeo) — registrados como considerados e
+  rejeitados por incompatibilidade de registro com o escritório.
+- **Aceite**: todo elemento interativo responde a hover/focus/active; zero
+  motion chamativo; um único elemento-assinatura (ADR-010) preservado.
 
 ---
 
@@ -242,6 +267,10 @@ FALHA  F6  linha de autuação só com o fecho constante, ou page-hero com
 AVISO  W1  padrões da ban-list no copy (tríade suspeita, "não é X, mas",
            adjetivo de intensidade, travessão longo)
 AVISO  W2  input com placeholder sem label associado (4.1)
+AVISO  W3  alt vazio ou genérico em imagem significativa (4.4)
+AVISO  W4  higiene: z-index arbitrário, JS órfão, transição sem
+           prefers-reduced-motion (4.3/4.4)
+AVISO  W5  title/meta description/og ausentes na página (4.3)
 ```
 
 Uso local: `python3 scripts/preflight.py` (exit ≠ 0 se houver FALHA).
