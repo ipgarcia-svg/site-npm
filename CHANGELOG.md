@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Fase 2.2 (ROADMAP-ANTI-IA): removed leftover decorative roman-numeral markers (`class="number"`) from the 8 area pages, escritorio and all 8 profile pages; removed eyebrows fully redundant with an adjacent h2 (Trajetória, Atuação institucional, Visão geral, Equipe, Experiência representativa) and the site-wide, information-free "Síntese" hero label; preserved eyebrows that are the sole orientation for a content block (Como atuamos, Temas correlatos, Publicações relacionadas) or name genuinely distinct categories (index.html sections; Sócios / Sócias e equipe).
+- preflight: fixed F4 double-counting the same visual label (section-label wrapper + inner eyebrow span); added a documented per-page exception list (EXCECOES_F4) for cases where the label informs rather than decorates (ADR-010 test), replacing the generic --tolerar F4 used since Fase 0; extended F6 to flag any remaining decorative roman numerals.
 - Fase 1 editorial pass (12_fonte ban-list) on index, escritorio and the 8 practice-area pages: decorative triads and antithesis scaffolds rewritten, "altamente" removed, the leaked internal editorial guideline in the Publicações heading replaced, and the uniform "Discutir uma demanda em [área]" CTA reformulated as one concrete client question per area.
 - Replaced all 58 `<image-slot>` mockup placeholders with real `<img>` elements (descriptive alt, intrinsic width/height, lazy loading below the fold) and deleted `assets/js/image-slot.js` (Fase 0.1 of ROADMAP-ANTI-IA; templates-npm ADR-009).
 - Removed the decorative PT/EN language toggle and its CSS until an English version exists (Fase 0.2).

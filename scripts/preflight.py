@@ -80,15 +80,38 @@ def main():
             falhas["F3"].append(f"{rel(p)} style inline {hx}")
 
     # ── F4: cota de eyebrows/labels por página (roadmap 2.2)
+    # Nota: "section-label"/"group-label" é o bloco visual; "eyebrow" é o
+    # span interno do mesmo bloco — contar os dois somaria a mesma
+    # instância duas vezes.
+    EXCECOES_F4 = {
+        "index.html": (
+            "4 blocos de conteúdo genuinamente distintos na página única "
+            "(institucional, áreas, pessoas, publicações); eyebrow nomeia "
+            "a categoria e o h2 é uma tese editorial própria — não "
+            "redundantes entre si (teste do ADR-010 aplicado, aprovado)."
+        ),
+        "profissionais/index.html": (
+            "2 grupos de pessoas sem heading próprio (Sócios / Sócias e "
+            "equipe); o eyebrow é a única forma de distinguir quem é "
+            "sócio na grade — removê-lo apagaria informação, não "
+            "decoração (teste do ADR-010 aplicado, aprovado)."
+        ),
+    }
     for p in pgs:
         s = open(p, encoding="utf-8").read()
         secoes = max(1, len(re.findall(r"<section\b", s)))
         rotulos = len(re.findall(
-            r'class="(?:eyebrow|label|section-label)"', s))
+            r'class="(?:section|group)-label"', s))
+        rotulos += len(re.findall(
+            r'class="label"(?![^>]*(?:section|group)-label)', s))
         teto = math.ceil(secoes / 3)
-        if rotulos > teto:
+        if rotulos > teto and rel(p) not in EXCECOES_F4:
             falhas["F4"].append(f"{rel(p)}: {rotulos} rótulos / teto {teto} "
                                 f"({secoes} seções)")
+        elif rotulos > teto:
+            avisos["F4-exceção"] = avisos.get("F4-exceção", [])
+            avisos["F4-exceção"].append(
+                f"{rel(p)}: {rotulos}/{teto} — {EXCECOES_F4[rel(p)]}")
 
     # ── F5: mais de um rótulo para a mesma intenção de CTA (roadmap 1.4)
     for p in pgs:
@@ -112,6 +135,8 @@ def main():
                 falhas["F6"].append(f"{rel(p)}: linha só com o fecho constante")
         if re.search(r'class="num"', s):
             falhas["F6"].append(f"{rel(p)}: marcador decorativo 'num' remanescente")
+        if re.search(r'class="number">[ivx]+<', s):
+            falhas["F6"].append(f"{rel(p)}: numeral romano decorativo remanescente")
 
     # ── W1: ban-list de copy (roadmap Fase 1 / 12_fonte)
     pad_banlist = [
@@ -220,6 +245,11 @@ def main():
             print(f"          · {it}")
         if len(itens) > 8:
             print(f"          · … e mais {len(itens) - 8}")
+
+    if avisos.get("F4-exceção"):
+        print("  NOTA  F4  exceção documentada (ADR-010 aplicado, aprovado):")
+        for it in avisos["F4-exceção"]:
+            print(f"          · {it}")
 
     tolerar = set()
     for i, a in enumerate(sys.argv):
