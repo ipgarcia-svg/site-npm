@@ -1,0 +1,16 @@
+name: preflight
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # F4 (cota de eyebrows) é débito conhecido da Fase 2 do
+      # ROADMAP-ANTI-IA; a tolerância sai no PR daquela fase.
+      - run: python3 scripts/preflight.py --tolerar F4
