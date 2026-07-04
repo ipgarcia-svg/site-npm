@@ -173,13 +173,25 @@ def main():
                 avisos["W3"].append(f"{rel(p)}: {tag[:70]}…")
 
     # ── W4: higiene — z-index arbitrário, JS órfão, motion sem reduced-motion
+    # Cobertura global: um único bloco @media (prefers-reduced-motion) com
+    # seletor universal (*, *::before, *::after) em qualquer CSS carregado
+    # por todas as páginas (assets/css/identidade.css) protege o site
+    # inteiro — não é necessário repetir a regra por arquivo.
+    cobertura_global_motion = False
+    for css in glob.glob(os.path.join(RAIZ, "assets/css/*.css")):
+        c = open(css, encoding="utf-8").read()
+        if "prefers-reduced-motion" in c and re.search(
+                r"\*\s*,\s*\*::before\s*,\s*\*::after", c):
+            cobertura_global_motion = True
+            break
     for css in glob.glob(os.path.join(RAIZ, "assets/css/*.css")):
         conteudo = open(css, encoding="utf-8").read()
         for z in re.findall(r"z-index:\s*(\d{3,})", conteudo):
             if int(z) >= 999:
                 avisos["W4"].append(f"{rel(css)}: z-index {z}")
         if re.search(r"\b(transition|animation)\s*:", conteudo) and \
-                "prefers-reduced-motion" not in conteudo:
+                "prefers-reduced-motion" not in conteudo and \
+                not cobertura_global_motion:
             avisos["W4"].append(f"{rel(css)}: transição/animação sem "
                                 "prefers-reduced-motion")
     for p in pgs:

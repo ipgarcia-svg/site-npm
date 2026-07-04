@@ -53,6 +53,28 @@
     outline-offset: 1px;
     border-color: var(--accent);
   }
+  .contact-form input.is-invalid,
+  .contact-form textarea.is-invalid {
+    border-color: #a33b2e;
+  }
+  .field-error {
+    display: none;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #a33b2e;
+  }
+  .field-error.is-visible { display: block; }
+  .form-success {
+    display: none;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+    margin-bottom: 28px;
+  }
+  .form-success.is-visible { display: block; }
   .contact-form textarea { min-height: 160px; resize: vertical; }
   .contact-form button {
     margin-top: 32px;
@@ -98,6 +120,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topbar">
   <div class="container topbar-inner">
@@ -113,6 +136,7 @@
     </nav>
   </div>
 </header>
+<a id="conteudo"></a>
 
 <div class="container">
   <div class="crumbs">
@@ -139,21 +163,28 @@
 
 <section>
   <div class="container contact-grid">
-    <form class="contact-form" name="contato" method="POST" action="/contato.html?enviado=1" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="contact-form" name="contato" method="POST" action="/contato.html?enviado=1" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contato">
       <p style="display:none"><label>Não preencher: <input name="bot-field"></label></p>
 
+      <div class="form-success" role="status" aria-live="polite">
+        Mensagem recebida. Retornaremos em breve.
+      </div>
+
       <label for="nome">Nome</label>
-      <input id="nome" name="nome" type="text" autocomplete="name" required>
+      <input id="nome" name="nome" type="text" autocomplete="name" required aria-describedby="erro-nome">
+      <p class="field-error" id="erro-nome">Informe seu nome.</p>
 
       <label for="email">E-mail</label>
-      <input id="email" name="email" type="email" autocomplete="email" required>
+      <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="erro-email">
+      <p class="field-error" id="erro-email">Informe um e-mail válido.</p>
 
       <label for="telefone">Telefone (opcional)</label>
       <input id="telefone" name="telefone" type="tel" autocomplete="tel">
 
       <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" required></textarea>
+      <textarea id="mensagem" name="mensagem" required aria-describedby="erro-mensagem"></textarea>
+      <p class="field-error" id="erro-mensagem">Escreva uma mensagem.</p>
 
       <button type="submit">Enviar mensagem</button>
       <p class="lgpd">
@@ -162,6 +193,54 @@
         Não envie informações sigilosas por este formulário.
       </p>
     </form>
+
+    <script>
+      (function () {
+        var params = new URLSearchParams(location.search);
+        if (params.get("enviado") === "1") {
+          var banner = document.querySelector(".form-success");
+          var form = document.querySelector(".contact-form");
+          banner.classList.add("is-visible");
+          form.style.display = "none";
+          banner.setAttribute("tabindex", "-1");
+          banner.focus();
+        }
+
+        var form = document.querySelector(".contact-form");
+        if (!form) return;
+
+        var validadores = {
+          nome: function (v) { return v.trim().length > 0; },
+          email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); },
+          mensagem: function (v) { return v.trim().length > 0; }
+        };
+
+        function validarCampo(campo) {
+          var ok = validadores[campo.name] ? validadores[campo.name](campo.value) : true;
+          var erro = document.getElementById("erro-" + campo.name);
+          campo.classList.toggle("is-invalid", !ok);
+          if (erro) erro.classList.toggle("is-visible", !ok);
+          return ok;
+        }
+
+        Object.keys(validadores).forEach(function (nome) {
+          var campo = form.querySelector('[name="' + nome + '"]');
+          if (campo) campo.addEventListener("blur", function () { validarCampo(campo); });
+        });
+
+        form.addEventListener("submit", function (ev) {
+          var invalidos = [];
+          Object.keys(validadores).forEach(function (nome) {
+            var campo = form.querySelector('[name="' + nome + '"]');
+            if (campo && !validarCampo(campo)) invalidos.push(campo);
+          });
+          if (invalidos.length) {
+            ev.preventDefault();
+            invalidos[0].focus();
+          }
+        });
+      })();
+    </script>
 
     <aside class="contact-aside">
       <dl>
