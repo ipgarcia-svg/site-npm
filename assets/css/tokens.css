@@ -1,0 +1,39 @@
+/* ════════════════════════════════════════════════════════════
+   Tokens visuais NPM – fonte de verdade única
+   Alinhado ao sistema de identidade templates-npm V8.2.9
+   (Newsreader + Hanken Grotesk + JetBrains Mono; paleta ink/navy
+   sobre superfícies de papel quente). Não redefinir estes valores
+   nos CSS de página; consumir via var().
+   ════════════════════════════════════════════════════════════ */
+:root {
+  /* Superfícies (escala paper → page do V8.2.9) */
+  --paper: #ffffff;
+  --panel: #f7f3ec;
+  --ivory: #f4f1ea;
+  --ivory-2: #eee8dd;
+  --ivory-3: #e8dfd2;
+
+  /* Tinta */
+  --ink: #172033;
+  --ink-2: #3e4a5d;
+  --ink-3: #7e8793;
+
+  /* Linhas */
+  --rule: #d8d2c8;
+  --rule-soft: #e4ded3;
+
+  /* Marca – navy V8.2.9 (substitui o marrom #663C1F legado) */
+  --accent: #1b2942;
+  --accent-soft: color-mix(in oklch, #1b2942 55%, #f4f1ea 45%);
+  --blue: #284c72;
+
+  /* Tipografia */
+  --serif: "Newsreader", "Times New Roman", Georgia, serif;
+  --sans: "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Display (parâmetros do V8.2.9) */
+  --display-weight: 360;
+  --display-tracking: -0.045em;
+  --display-line: 0.96;
+}

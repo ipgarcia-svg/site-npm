@@ -1,16 +1,5 @@
 :root {
-    --ivory: oklch(0.972 0.006 85);
-    --ivory-2: oklch(0.945 0.008 85);
-    --ivory-3: oklch(0.90 0.010 85);
-    --ink: oklch(0.18 0.015 255);
-    --ink-2: oklch(0.36 0.012 255);
-    --ink-3: oklch(0.55 0.010 255);
-    --rule: oklch(0.82 0.010 85);
-    --rule-soft: oklch(0.88 0.008 85);
-    --accent: #663C1F;
-    --accent-soft: color-mix(in oklch, #663C1F 60%, var(--ivory) 40%);
-    --serif: "Newsreader", "Times New Roman", Georgia, serif;
-    --sans: "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* Tokens centralizados em assets/css/tokens.css (identidade V8.2.9). Não redefinir aqui. */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,9 +12,6 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-image:
-      radial-gradient(circle at top right, color-mix(in oklch, var(--accent) 8%, transparent) 0, transparent 30%),
-      linear-gradient(180deg, color-mix(in oklch, white 26%, var(--ivory)) 0%, var(--ivory) 25%, var(--ivory-2) 100%);
   }
   a { color: inherit; text-decoration: none; }
 

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- `assets/css/tokens.css` as the single visual-token source aligned with the `templates-npm` V8.2.9 identity (ink/navy palette, warm paper surfaces, display parameters).
+- `contato.html` with a Netlify Forms contact form, LGPD notice, and office contact data.
+- `_redirects` mapping all legacy Wix URLs (practice-area slugs, `/areas-de-atuacao`, `/blog`, `/contato`) to the new site with 301s.
+
 - `areas/tributario.html` as the v1 tax practice page.
 - `areas/contratual.html` as the v1 contract law practice page.
 - `areas/arbitragem.html` as the v1 arbitration and mediation page.

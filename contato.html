@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato – NPM Advogados</title>
+<meta name="description" content="Entre em contato com o NPM Advogados: formulário, e-mail, telefone e endereço do escritório em Pinheiros, São Paulo.">
+<link rel="canonical" href="https://www.npmadvogados.com.br/contato.html">
+<link rel="icon" type="image/png" href="assets/img/logo-npm.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contato – NPM Advogados">
+<meta property="og:description" content="Fale com o Novaes, Plantulli e Manzoli Advogados. Atendimento direto pelos sócios desde 1989.">
+<meta property="og:url" content="https://www.npmadvogados.com.br/contato.html">
+<meta property="og:image" content="https://www.npmadvogados.com.br/assets/img/logo-npm.png">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/area-societario.css">
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 64px;
+    padding: 48px 0 96px;
+  }
+  .contact-form label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 26px 0 8px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 13px 14px;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+  .contact-form textarea { min-height: 160px; resize: vertical; }
+  .contact-form button {
+    margin-top: 32px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: var(--accent);
+    border: none;
+    border-radius: 2px;
+    padding: 15px 34px;
+    cursor: pointer;
+  }
+  .contact-form button:hover { background: var(--blue); }
+  .contact-form .lgpd {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--ink-3);
+    max-width: 52ch;
+  }
+  .contact-form .lgpd a { color: var(--accent); text-decoration: underline; }
+  .contact-aside dt {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 30px;
+  }
+  .contact-aside dd {
+    margin: 8px 0 0;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .contact-aside dd a { color: var(--accent); }
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; padding: 32px 0 72px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="index.html" class="brand" aria-label="Novaes, Plantulli e Manzoli – Sociedade de Advogados">
+      <img class="brand-logo" src="assets/img/logo-npm.png" alt="Novaes, Plantulli e Manzoli – Sociedade de Advogados">
+    </a>
+    <nav class="nav">
+      <a href="escritorio.html">Escritório</a>
+      <a href="index.html#areas">Áreas de atuação</a>
+      <a href="profissionais/index.html">Profissionais</a>
+      <a href="index.html#publicacoes">Publicações</a>
+      <a href="contato.html" class="current">Contato</a>
+    </nav>
+    <div class="lang">
+      <span class="active">PT</span><span class="sep">/</span><span>EN</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="crumbs">
+    <a href="index.html">Início</a>
+    <span class="sep">/</span>
+    <span>Contato</span>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="num">NPM</div>
+    <h1>Contato</h1>
+    <div class="page-hero-lead">
+      <div class="label">Atendimento</div>
+      <p>
+        Descreva a sua demanda no formulário ao lado ou fale diretamente com o escritório
+        por e-mail e telefone. As mensagens são recebidas pela equipe e direcionadas ao
+        sócio responsável pela área.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container contact-grid">
+    <form class="contact-form" name="contato" method="POST" action="/contato.html?enviado=1" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contato">
+      <p style="display:none"><label>Não preencher: <input name="bot-field"></label></p>
+
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" required>
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <label for="telefone">Telefone (opcional)</label>
+      <input id="telefone" name="telefone" type="tel" autocomplete="tel">
+
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+
+      <button type="submit">Enviar mensagem</button>
+      <p class="lgpd">
+        Os dados informados são utilizados exclusivamente para responder à sua mensagem,
+        conforme a <a href="politica-de-privacidade.html">Política de privacidade</a>.
+        Não envie informações sigilosas por este formulário.
+      </p>
+    </form>
+
+    <aside class="contact-aside">
+      <dl>
+        <dt>E-mail</dt>
+        <dd><a href="mailto:contato@npmadvogados.com.br">contato@npmadvogados.com.br</a></dd>
+        <dt>Telefone</dt>
+        <dd><a href="tel:+551135159676">+55 11 3515 9676</a></dd>
+        <dt>Endereço</dt>
+        <dd>
+          R. Cristiano Viana, 401<br>
+          Conj. 601 / 602 – Pinheiros<br>
+          São Paulo · SP · 05411-000
+        </dd>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/company/npmadvogados/" rel="noopener">npmadvogados</a></dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-brand-logo" src="assets/img/logo-npm.png" alt="Novaes, Plantulli e Manzoli – Sociedade de Advogados">
+        </div>
+        <p class="footer-tag">Advocacia empresarial e patrimonial em São Paulo. Atendimento direto pelos sócios desde 1989.</p>
+      </div>
+      <div>
+        <h5>Escritório</h5>
+        <div class="address">
+          R. Cristiano Viana, 401<br>
+          Conj. 601 / 602 – Pinheiros<br>
+          São Paulo · SP · 05411-000<br>
+          Brasil
+        </div>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="mailto:contato@npmadvogados.com.br">contato@npmadvogados.com.br</a></li>
+          <li><a href="tel:+551135159676">+55 11 3515 9676</a></li>
+          <li><a href="profissionais/index.html">Equipe e perfis</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="escritorio.html">O escritório</a></li>
+          <li><a href="index.html#areas">Áreas de atuação</a></li>
+          <li><a href="profissionais/index.html">Profissionais</a></li>
+          <li><a href="index.html#publicacoes">Publicações</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Novaes, Plantulli e Manzoli Advogados</div>
+      <div style="display: flex; gap: 28px;">
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <a href="aviso-de-cookies.html">Aviso de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+
+</body></html>
