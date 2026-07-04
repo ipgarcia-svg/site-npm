@@ -1,0 +1,20 @@
+/* ════════════════════════════════════════════════════════════
+   Componentes de identidade NPM
+   Base normativa: templates-npm ADR-010 e ADR-011.
+   Linha de autuação: elemento-assinatura das páginas — metadados
+   verificáveis da própria página, fecho constante "DESDE 1989".
+   Nunca prosa, nunca slogan; sem dado próprio, sem linha.
+   ════════════════════════════════════════════════════════════ */
+.autuacao {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-bottom: 30px;
+  max-width: fit-content;
+  padding-right: 34px;
+}
