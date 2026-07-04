@@ -149,12 +149,17 @@ embarcado no site publicado. Prioridade máxima.
   cada 3 seções por página (teto = ⌈seções/3⌉). Checagem mecânica: contar
   rótulos em caps com tracking acima de títulos; acima do teto, reprova.
 
-### 2.3 Hierarquizar o grid de áreas
+### 2.3 Hierarquizar o grid de áreas — **concluído**
 - **Evidência**: 8 cards idênticos em grid regular no index.
 - **Ação**: dar peso distinto às 2–3 áreas-âncora do escritório (definir com
   os sócios — a confirmar) e agrupar as demais; quebra de simetria
   intencional.
 - **Aceite**: o grid comunica prioridade real do escritório, não uniformidade.
+  **Concluído** — áreas-âncora definidas com os sócios (Societário,
+  Patrimonial e Sucessório, Contratual, Arbitragem — maior centralidade
+  cruzada entre "Temas correlatos" + confirmação direta), renderizadas
+  como 4 cards grandes (2×2); as demais 4 em lista secundária compacta,
+  diferenciada por tipografia e espaço, sem elevação decorativa.
 
 ### 2.4 Assinatura tipográfica própria nos metadados
 - **Evidência**: JetBrains Mono carregado e não utilizado; metadados (datas,
