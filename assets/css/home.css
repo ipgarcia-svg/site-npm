@@ -83,15 +83,7 @@
     border-bottom: 1px solid var(--rule);
     position: relative;
   }
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0;
-    height: 160px;
-    background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--accent) 5%, transparent));
-    pointer-events: none;
-  }
-  .kicker {
+    .kicker {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.28em;

@@ -120,7 +120,7 @@ embarcado no site publicado. Prioridade máxima.
 
 ## Fase 2 – Estrutura e design: quebrar o molde único
 
-### 2.1 Variar o molde de abertura das páginas internas
+### 2.1 Variar o molde de abertura das páginas internas — **concluído**
 - **Evidência**: 12 páginas usam o mesmo bloco `page-hero` com `num` ("NPM"),
   h1 e `page-hero-lead` com `label`; 11 repetem o mesmo lead estruturado.
 - **Ação**: manter o molde como base, mas diferenciar por tipo de página:
@@ -128,7 +128,10 @@ embarcado no site publicado. Prioridade máxima.
   fato biográfico); escritório abre com a história (1989). O conteúdo dita a
   abertura, não o template.
 - **Aceite**: nenhum par de tipos de página (área × perfil × institucional)
-  com abertura estruturalmente idêntica.
+  com abertura estruturalmente idêntica. **Concluído** — áreas abrem com a
+  situação do cliente (lead reordenado, firma em segundo plano); perfis
+  abrem com retrato + fato biográfico verificável (formação/OAB) antes do
+  resumo de áreas; escritório já abria com 1989, verificado sem alteração.
 - **Adendos mensuráveis (V1.1)**:
   - página com N seções usa ao menos 4 famílias de layout distintas quando
     N ≥ 8; nenhuma família se repete em seções consecutivas além de 2;
