@@ -60,16 +60,6 @@
     height: 1px;
     background: var(--ink);
   }
-  .lang {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--ink-3);
-  }
-  .lang .active { color: var(--ink); }
-  .lang span.sep { color: var(--rule); margin: 0 6px; }
   @media (max-width: 900px) {
     .nav { display: none; }
   }
@@ -158,7 +148,7 @@
     overflow: hidden;
     transition: filter .35s ease;
   }
-  .profile-portrait image-slot {
+  .profile-portrait img {
     position: absolute;
     inset: 0;
     width: 100%;
