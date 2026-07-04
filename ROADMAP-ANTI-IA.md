@@ -1,10 +1,15 @@
-# ROADMAP – Descaracterização de "site gerado por IA" – V1
+# ROADMAP – Descaracterização de "site gerado por IA" – V1.1
 
 Objetivo: eliminar do site público todos os sinais — de texto, design, estrutura e
 tooling — que o identificam como produção assistida por IA ou template genérico.
 Régua editorial de referência: `templates-npm/12_fonte_aberturas_e_linguagem_npm.md`
 (ban-list de andaimes de antítese, tríades decorativas, pontuação de efeito e
 vocabulário-clichê), aplicada aqui ao meio "site institucional".
+
+Calibração externa (V1.1): regras mecânicas do taste-skill
+(tasteskill.dev) incorporadas onde compatíveis com os ADRs de identidade do
+`templates-npm`. Em conflito, os ADRs prevalecem — skill é calibração,
+ADR é autoridade.
 
 Critério geral de pronto: um leitor atento (advogado concorrente, jornalista,
 cliente sofisticado) não encontra nenhum padrão listado abaixo em nenhuma página
@@ -89,6 +94,10 @@ embarcado no site publicado. Prioridade máxima.
   cliente daquela área (ex.: tributário → autuação/parcelamento;
   societário → conflito entre sócios/reorganização).
 - **Aceite**: nenhum par de páginas com CTA de estrutura idêntica.
+- **Regra intra-página (V1.1)**: uma intenção = um rótulo. CTAs com a mesma
+  intenção (contato/conversa) usam o mesmo texto em toda a página — nav,
+  meio e rodapé não podem alternar "Fale conosco" / "Entre em contato" /
+  "Discutir uma demanda".
 
 ### 1.5 Substituir qualificação por fato
 - **Evidência**: "altamente" (2×); leads que qualificam sem informar.
@@ -120,6 +129,11 @@ embarcado no site publicado. Prioridade máxima.
   abertura, não o template.
 - **Aceite**: nenhum par de tipos de página (área × perfil × institucional)
   com abertura estruturalmente idêntica.
+- **Adendos mensuráveis (V1.1)**:
+  - página com N seções usa ao menos 4 famílias de layout distintas quando
+    N ≥ 8; nenhuma família se repete em seções consecutivas além de 2;
+  - hero com no máximo 4 elementos de texto (eyebrow OU marca; título ≤ 2
+    linhas; subtexto ≤ 20 palavras; até 2 CTAs), tudo visível sem rolagem.
 
 ### 2.2 Remover numeração decorativa de seções
 - **Evidência**: `section-label` com numerais romanos ("iv") + eyebrow em
@@ -128,6 +142,9 @@ embarcado no site publicado. Prioridade máxima.
 - **Ação**: remover os numerais; manter eyebrow apenas onde nomeia de fato a
   seção.
 - **Aceite**: nenhum marcador numérico sem função informativa.
+- **Adendo mensurável (V1.1) — cota de eyebrows**: máximo 1 eyebrow/label a
+  cada 3 seções por página (teto = ⌈seções/3⌉). Checagem mecânica: contar
+  rótulos em caps com tracking acima de títulos; acima do teto, reprova.
 
 ### 2.3 Hierarquizar o grid de áreas
 - **Evidência**: 8 cards idênticos em grid regular no index.
@@ -209,6 +226,28 @@ embarcado no site publicado. Prioridade máxima.
 
 ---
 
+## Métricas mecânicas — pre-flight (V1.1)
+
+`scripts/preflight.py` audita o repositório contra as regras mecanizáveis
+deste roadmap e dos ADRs de identidade:
+
+```text
+FALHA  F1  <image-slot> ou image-slot.js referenciado em página pública (0.1)
+FALHA  F2  toggle PT/EN sem versão EN existente (0.2)
+FALHA  F3  hex literal fora do(s) arquivo(s) de tokens (ADR-008)
+FALHA  F4  cota de eyebrows estourada: rótulos > ⌈seções/3⌉ (2.2)
+FALHA  F5  mais de um rótulo para a mesma intenção de CTA na página (1.4)
+FALHA  F6  linha de autuação só com o fecho constante, ou page-hero com
+           marcador decorativo remanescente (ADR-010/011)
+AVISO  W1  padrões da ban-list no copy (tríade suspeita, "não é X, mas",
+           adjetivo de intensidade, travessão longo)
+AVISO  W2  input com placeholder sem label associado (4.1)
+```
+
+Uso local: `python3 scripts/preflight.py` (exit ≠ 0 se houver FALHA).
+Ativação em CI (GitHub Actions) ocorre no PR da Fase 0 — antes disso o
+repositório reprova por definição, pois os bloqueadores existem.
+
 ## Regras transversais (valem para todo PR deste roadmap)
 
 1. Nenhum texto novo entra sem passar pela ban-list do 12_fonte.
@@ -218,6 +257,8 @@ embarcado no site publicado. Prioridade máxima.
 4. Fato sem evidência não entra: marcar "a confirmar" e resolver antes do
    merge (método Passo Atrás aplicado ao site).
 5. Cada fase = um PR; aprovação humana de copy registrada no PR.
+6. Nenhum PR das Fases 1–4 mergeia fazendo o `preflight.py` regredir
+   (novas falhas em relação à base do PR).
 
 ## Sequenciamento sugerido
 
