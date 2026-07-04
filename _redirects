@@ -1,0 +1,21 @@
+# Migração Wix → site v1 – redirects 301
+# Slugs antigos conferidos em https://www.npmadvogados.com.br/areas-de-atuacao (jul/2026)
+
+# Páginas institucionais
+/areas-de-atuacao                       /#areas                              301
+/blog                                   /#publicacoes                        301
+/blog/*                                 /#publicacoes                        301
+/contato                                /contato.html                        301
+
+# Áreas de atuação (slug antigo → página nova)
+/direito-societario                     /areas/societario.html               301
+/direito-contratual                     /areas/contratual.html               301
+/direito-tributario                     /areas/tributario.html               301
+/arbitragem-e-mediacao                  /areas/arbitragem.html               301
+/direito-imobiliario                    /areas/imobiliario.html              301
+/planejamento-patrimonial-sucessorio    /areas/patrimonial-sucessorio.html   301
+/contencioso-civel                      /areas/contencioso-civel.html        301
+/familias-e-sucessoes                   /areas/familia-sucessoes.html        301
+
+# Observação: o redirect apex → www (domínio primário) é configurado no
+# painel do Netlify (Domain management), não neste arquivo.
