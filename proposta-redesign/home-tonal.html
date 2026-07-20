@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPM Advogados – Novaes, Plantulli e Manzoli (variante tonal)</title>
+<meta name="description" content="NPM Advogados – escritório fundado em 1989, com atuação empresarial, patrimonial, tributária e contenciosa, conduzido diretamente pelos sócios em São Paulo.">
+<link rel="icon" type="image/png" href="../assets/img/logo-npm.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* ── Tokens (ADR-006 / ADR-007 — fonte: templates-npm) ── */
+  :root{
+    --page:#e8dfd2;
+    --panel:#f7f3ec;
+    --paper:#ffffff;
+    --ivory:#f4f1ea;
+    --ink:#172033;
+    --ink-2:#3e4a5d;
+    --muted:#7e8793;
+    --navy:#1b2942;
+    --blue:#284c72;
+    --line:#d8d2c8;
+    --line-dark:rgba(244,241,234,.22);
+    --ivory-dark-2:rgba(244,241,234,.72);
+    --shadow:0 18px 60px rgba(16,19,26,.08);
+    --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(56% 56% at 84% 6%, rgba(40,76,114,.09) 0%, transparent 62%),
+      radial-gradient(48% 48% at 10% 40%, rgba(181,202,224,.16) 0%, transparent 64%),
+      linear-gradient(180deg, #eee7db 0%, var(--page) 46%, #e0d5c3 100%);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .container{max-width:1240px;margin:0 auto;padding:0 48px}
+  @media(max-width:800px){.container{padding:0 22px}}
+
+  /* Display — parâmetros do template system (tokens src/current) */
+  .display{
+    font-family:var(--sans);
+    font-weight:670;
+    letter-spacing:-.058em;
+    line-height:.96;
+  }
+
+  /* Régua de metadados — mono só para dado factual (ADR-007) */
+  .meta{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+  }
+
+  /* ── Topbar ── */
+  .topbar{background:var(--ivory);border-bottom:1px solid var(--line)}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:40px}
+  .brand-logo{height:36px;width:auto}
+  .nav{display:flex;gap:30px}
+  .nav a{font-size:13px;font-weight:400;color:var(--ink-2)}
+  .nav a:hover{color:var(--navy)}
+  .lang{font-size:12px;color:var(--muted)}
+  .lang .active{color:var(--ink);font-weight:500}
+  @media(max-width:800px){.nav{display:none}}
+
+  /* ── Capa (hero em navy — capa de autos) ── */
+  .capa{
+    position:relative;
+    background:
+      radial-gradient(84% 84% at 26% 20%, rgba(40,76,114,.46) 0%, transparent 62%),
+      radial-gradient(66% 66% at 80% 72%, rgba(23,32,51,.55) 0%, transparent 66%),
+      radial-gradient(40% 40% at 62% 8%, rgba(181,202,224,.10) 0%, transparent 60%),
+      linear-gradient(160deg, var(--ink) 0%, var(--navy) 100%);
+    color:var(--ivory);
+    padding:88px 0 0;
+  }
+  .capa::after,.rodape::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    opacity:.034;mix-blend-mode:soft-light;
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.6) 0 .55px, transparent .75px),
+      radial-gradient(circle at 70% 80%, rgba(23,32,51,.38) 0 .55px, transparent .75px);
+    background-size:26px 26px,34px 34px;
+  }
+  .capa>.container,.rodape>.container{position:relative;z-index:1}
+  .autuacao{
+    border-top:1px solid var(--line-dark);
+    padding-top:12px;
+    color:var(--ivory-dark-2);
+    max-width:640px;
+  }
+  .capa-grid{
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:72px;
+    align-items:end;
+    margin-top:44px;
+  }
+  .capa-foto{margin:0;border:1px solid var(--line-dark)}
+  .capa-foto img{width:100%;height:430px;object-fit:cover;filter:saturate(.82)}
+  .capa h1{
+    font-size:clamp(40px,5.4vw,76px);
+    max-width:15ch;
+    color:var(--ivory);
+  }
+  .capa .abre{
+    margin:34px 0 0;
+    max-width:52ch;
+    font-size:17px;
+    color:var(--ivory-dark-2);
+  }
+  .capa .abre a{color:var(--ivory);border-bottom:1px solid var(--line-dark)}
+  .capa .abre a:hover{border-color:var(--ivory)}
+  .ficha{
+    margin-top:72px;
+    border-top:1px solid var(--line-dark);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+  }
+  .ficha div{padding:20px 24px 26px 0}
+  .ficha div+div{border-left:1px solid var(--line-dark);padding-left:24px}
+  .ficha .meta{color:var(--ivory-dark-2)}
+  .ficha p{margin-top:6px;font-size:15px;color:var(--ivory)}
+  @media(max-width:800px){
+    .ficha{grid-template-columns:1fr}
+    .ficha div+div{border-left:none;border-top:1px solid var(--line-dark);padding-left:0}
+    .capa{padding-top:56px}
+    .capa-grid{grid-template-columns:1fr;gap:36px}
+    .capa-foto{order:2}
+    .capa-foto img{height:240px}
+  }
+
+  /* ── Folhas (seções como folhas de papel sobre o chão areia) ── */
+  .folha{background:var(--ivory);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .folha+.folha,.miolo>.folha:first-child{margin-top:56px}
+  .miolo{padding:72px 0 88px}
+  .folha-inner{padding:64px 64px 72px}
+  @media(max-width:800px){.folha-inner{padding:36px 22px 44px}}
+
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+  h2.display{font-size:clamp(30px,3.6vw,46px);margin-top:14px;max-width:20ch}
+
+  /* Escritório */
+  .escritorio-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+  .escritorio-grid .texto p+p{margin-top:18px}
+  .escritorio-grid .texto{font-size:16.5px;color:var(--ink-2)}
+  .escritorio-grid .texto p:first-of-type{margin-top:28px}
+  .foto figure{margin:0}
+  .foto img{width:100%;height:460px;object-fit:cover;filter:saturate(.92)}
+  .foto figcaption{margin-top:10px;font-size:13px;color:var(--muted)}
+  .entidades{margin-top:40px;border-top:1px solid var(--line)}
+  .entidades li{
+    list-style:none;
+    display:grid;grid-template-columns:220px 1fr;gap:24px;
+    padding:14px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;color:var(--ink-2);
+  }
+  .entidades li strong{font-weight:500;color:var(--ink)}
+  @media(max-width:800px){
+    .escritorio-grid{grid-template-columns:1fr}
+    .entidades li{grid-template-columns:1fr;gap:2px}
+    .foto img{height:300px}
+  }
+
+  /* Sumário de áreas — índice, não cards */
+  .grupo{margin-top:46px}
+  .grupo:first-of-type{margin-top:40px}
+  .grupo-titulo{
+    font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--blue);padding-bottom:10px;border-bottom:1px solid var(--ink);
+  }
+  .indice{list-style:none}
+  .indice li{border-bottom:1px solid var(--line)}
+  .indice a{
+    display:grid;grid-template-columns:320px 1fr auto;gap:32px;align-items:baseline;
+    padding:20px 0;
+  }
+  .indice a:hover .area-nome{color:var(--blue)}
+  .area-nome{
+    font-weight:600;
+    letter-spacing:-.025em;
+    font-size:20px;
+  }
+  .area-desc{font-size:14.5px;color:var(--ink-2)}
+  .area-seta{font-size:14px;color:var(--muted)}
+  .indice a:hover .area-seta{color:var(--blue)}
+  @media(max-width:800px){
+    .indice a{grid-template-columns:1fr;gap:4px;padding:16px 0}
+    .area-seta{display:none}
+  }
+
+  /* Equipe — registro, não vitrine */
+  .equipe-grid{
+    margin-top:40px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  }
+  .pessoa img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92)}
+  .pessoa .nome{
+    margin-top:12px;
+    font-weight:500;font-size:16px;letter-spacing:-.015em;
+  }
+  .pessoa:hover .nome{color:var(--blue)}
+  .equipe-nota{margin-top:34px;font-size:15px;color:var(--ink-2);max-width:60ch}
+  .equipe-nota a{border-bottom:1px solid var(--line);font-weight:400}
+  .equipe-nota a:hover{border-color:var(--blue);color:var(--blue)}
+  @media(max-width:800px){.equipe-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+
+  /* ── Contato / rodapé (navy) ── */
+  .rodape{
+    position:relative;
+    background:
+      radial-gradient(76% 76% at 76% 18%, rgba(40,76,114,.42) 0%, transparent 64%),
+      radial-gradient(48% 48% at 18% 82%, rgba(23,32,51,.50) 0%, transparent 62%),
+      linear-gradient(200deg, var(--navy) 0%, var(--ink) 100%);
+    color:var(--ivory);margin-top:88px;
+  }
+  .rodape-inner{padding:72px 0 56px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px}
+  .rodape h2{font-size:clamp(26px,3vw,38px);color:var(--ivory)}
+  .rodape .meta{color:var(--ivory-dark-2)}
+  .rodape address{font-style:normal;margin-top:14px;font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--ivory)}
+  .rodape .col p{margin-top:14px;font-size:14.5px;color:var(--ivory-dark-2)}
+  .rodape .col a{color:var(--ivory);border-bottom:1px solid var(--line-dark)}
+  .rodape .col a:hover{border-color:var(--ivory)}
+  .rodape .col ul{list-style:none;margin-top:14px}
+  .rodape .col ul li{margin-top:8px;font-size:14.5px}
+  .rodape .col ul a{border:none;color:var(--ivory-dark-2)}
+  .rodape .col ul a:hover{color:var(--ivory)}
+  .rodape-base{
+    border-top:1px solid var(--line-dark);
+    padding:22px 0 26px;
+    display:flex;justify-content:space-between;gap:24px;
+    font-size:12.5px;color:var(--ivory-dark-2);
+  }
+  .rodape-base a:hover{color:var(--ivory)}
+  @media(max-width:800px){
+    .rodape-inner{grid-template-columns:1fr;gap:36px}
+    .rodape-base{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="home.html" class="brand" aria-label="Novaes, Plantulli e Manzoli – Sociedade de Advogados">
+      <img class="brand-logo" src="../assets/img/logo-npm.png" alt="Novaes, Plantulli e Manzoli – Sociedade de Advogados">
+    </a>
+    <nav class="nav" aria-label="principal">
+      <a href="#escritorio">Escritório</a>
+      <a href="#areas">Áreas de atuação</a>
+      <a href="#equipe">Profissionais</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="lang"><span class="active">PT</span> / <span>EN</span></div>
+  </div>
+</header>
+
+<!-- Capa -->
+<section class="capa">
+  <div class="container">
+    <p class="autuacao meta">Advocacia empresarial e patrimonial · Pinheiros, São Paulo · desde 1989</p>
+    <div class="capa-grid">
+      <figure class="capa-foto">
+        <img src="../source-assets/uploads/foto-escritorio-2.jpg" alt="Escritório do Novaes, Plantulli e Manzoli, em Pinheiros, São Paulo">
+      </figure>
+      <div class="capa-texto">
+        <h1 class="display">Advocacia empresarial e patrimonial, do consultivo ao contencioso.</h1>
+        <p class="abre">
+          O Novaes, Plantulli e Manzoli atua em oito áreas, com gestão
+          integrada entre elas. Os sócios conduzem os casos diretamente e
+          acompanham de perto as decisões mais relevantes de cada situação —
+          <a href="#areas">áreas de atuação</a> e <a href="#equipe">equipe</a>.
+        </p>
+      </div>
+    </div>
+    <div class="ficha">
+      <div>
+        <span class="meta">Fundação</span>
+        <p>São Paulo, 1989</p>
+      </div>
+      <div>
+        <span class="meta">Atuação</span>
+        <p>8 áreas · consultivo e contencioso</p>
+      </div>
+      <div>
+        <span class="meta">Sede</span>
+        <p>Pinheiros, São Paulo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="miolo container">
+
+  <!-- Escritório -->
+  <section class="folha" id="escritorio">
+    <div class="folha-inner">
+      <span class="eyebrow">O escritório</span>
+      <div class="escritorio-grid">
+        <div class="texto">
+          <h2 class="display">Trinta e sete anos de prática, oito áreas em diálogo.</h2>
+          <p>
+            Fundado em 1989, o escritório mantém gestão integrada e circulação
+            constante de conhecimento entre a equipe. Decisões societárias,
+            contratuais, tributárias, patrimoniais e contenciosas são avaliadas
+            de forma coordenada, não em compartimentos.
+          </p>
+          <p>
+            Há também atuação consolidada em consultoria a investimentos
+            estrangeiros e transações internacionais, financiamentos,
+            transferências de tecnologia e obtenção de licenças.
+          </p>
+          <ul class="entidades">
+            <li><strong>OAB</strong><span>Sociedade inscrita na Ordem dos Advogados do Brasil</span></li>
+            <li><strong>CESA</strong><span>Centro de Estudos das Sociedades de Advogados</span></li>
+            <li><strong>CBAr</strong><span>Comitê Brasileiro de Arbitragem</span></li>
+            <li><strong>Câmara Ítalo-Brasileira</strong><span>Indústria e Comércio</span></li>
+            <li><strong>IBDFAM</strong><span>Instituto Brasileiro de Direito de Família</span></li>
+          </ul>
+        </div>
+        <div class="foto">
+          <figure>
+            <img src="../source-assets/uploads/foto-escritorio-hero.jpg" alt="Escritório do Novaes, Plantulli e Manzoli, em Pinheiros, São Paulo">
+            <figcaption>R. Cristiano Viana, 401 – Pinheiros, São Paulo</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas -->
+  <section class="folha" id="areas">
+    <div class="folha-inner">
+      <span class="eyebrow">Áreas de atuação</span>
+      <h2 class="display">Oito frentes, do consultivo ao contencioso.</h2>
+
+      <div class="grupo">
+        <div class="grupo-titulo">Empresarial</div>
+        <ul class="indice">
+          <li><a href="../areas/societario.html">
+            <span class="area-nome">Direito Societário</span>
+            <span class="area-desc">Constituição, governança, acordos de sócios, reorganizações, M&amp;A e estruturação de holdings.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+          <li><a href="../areas/contratual.html">
+            <span class="area-nome">Direito Contratual</span>
+            <span class="area-desc">Redação, revisão e negociação de contratos empresariais nacionais e internacionais.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+          <li><a href="../areas/tributario.html">
+            <span class="area-nome">Direito Tributário</span>
+            <span class="area-desc">Planejamento, consultoria e contencioso administrativo e judicial em tributos federais, estaduais e municipais.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+          <li><a href="../areas/imobiliario.html">
+            <span class="area-nome">Direito Imobiliário</span>
+            <span class="area-desc">Estruturação de operações imobiliárias, due diligence, locações empresariais e contencioso imobiliário.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <div class="grupo-titulo">Patrimonial e família</div>
+        <ul class="indice">
+          <li><a href="../areas/patrimonial-sucessorio.html">
+            <span class="area-nome">Planejamento Patrimonial e Sucessório</span>
+            <span class="area-desc">Estruturação de holdings familiares, planejamento sucessório e governança de família.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+          <li><a href="../areas/familia-sucessoes.html">
+            <span class="area-nome">Família e Sucessões</span>
+            <span class="area-desc">Acompanhamento de inventários, divórcios e questões familiares com tratamento patrimonial.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="grupo">
+        <div class="grupo-titulo">Resolução de disputas</div>
+        <ul class="indice">
+          <li><a href="../areas/contencioso-civel.html">
+            <span class="area-nome">Contencioso Cível</span>
+            <span class="area-desc">Atuação em litígios cíveis complexos, com foco em disputas empresariais e patrimoniais.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+          <li><a href="../areas/arbitragem.html">
+            <span class="area-nome">Arbitragem e Mediação</span>
+            <span class="area-desc">Representação em arbitragens institucionais e ad hoc, em disputas societárias, contratuais e patrimoniais.</span>
+            <span class="area-seta">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe -->
+  <section class="folha" id="equipe">
+    <div class="folha-inner">
+      <span class="eyebrow">Profissionais</span>
+      <h2 class="display">Quem conduz os trabalhos.</h2>
+      <div class="equipe-grid">
+        <a class="pessoa" href="../profissionais/luiz-novaes.html">
+          <img src="../assets/img/luiz-novaes.jpg" alt="Luiz Roberto de Andrade Novaes">
+          <div class="nome">Luiz Roberto de Andrade Novaes</div>
+        </a>
+        <a class="pessoa" href="../profissionais/fabio-plantulli.html">
+          <img src="../assets/img/fabio-plantulli.jpg" alt="Fábio Plantulli">
+          <div class="nome">Fábio Plantulli</div>
+        </a>
+        <a class="pessoa" href="../profissionais/andre-manzoli.html">
+          <img src="../assets/img/andre-manzoli.jpg" alt="André Manzoli">
+          <div class="nome">André Manzoli</div>
+        </a>
+        <a class="pessoa" href="../profissionais/tathiana-fiuza.html">
+          <img src="../assets/img/tathiana-fiuza.jpg" alt="Tathiana Fiuza">
+          <div class="nome">Tathiana Fiuza</div>
+        </a>
+        <a class="pessoa" href="../profissionais/thais-vilhena.html">
+          <img src="../assets/img/thais-vilhena.jpg" alt="Thais Vilhena">
+          <div class="nome">Thais Vilhena</div>
+        </a>
+        <a class="pessoa" href="../profissionais/paola-giannotti.html">
+          <img src="../assets/img/paola-giannotti.jpg" alt="Paola Giannotti">
+          <div class="nome">Paola Giannotti</div>
+        </a>
+        <a class="pessoa" href="../profissionais/iago-garcia.html">
+          <img src="../assets/img/iago-garcia.jpg" alt="Iago Garcia">
+          <div class="nome">Iago Garcia</div>
+        </a>
+      </div>
+      <p class="equipe-nota">
+        Os perfis individuais reúnem formação, áreas de atuação e participação
+        institucional de cada profissional — <a href="../profissionais/index.html">equipe completa</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Contato -->
+<footer class="rodape" id="contato">
+  <div class="container">
+    <div class="rodape-inner">
+      <div class="col">
+        <h2 class="display">Contato</h2>
+        <address>
+          R. Cristiano Viana, 401<br>
+          Conj. 601/602 · Pinheiros<br>
+          São Paulo · SP · 05411-000
+        </address>
+      </div>
+      <div class="col">
+        <span class="meta" style="color:var(--ivory-dark-2)">Atendimento</span>
+        <p><a href="mailto:contato@npmadvogados.com.br">contato@npmadvogados.com.br</a></p>
+        <p><a href="tel:+551135159676">+55 11 3515 9676</a></p>
+      </div>
+      <div class="col">
+        <span class="meta" style="color:var(--ivory-dark-2)">Navegação</span>
+        <ul>
+          <li><a href="#escritorio">O escritório</a></li>
+          <li><a href="#areas">Áreas de atuação</a></li>
+          <li><a href="#equipe">Profissionais</a></li>
+          <li><a href="../politica-de-privacidade.html">Política de privacidade</a></li>
+          <li><a href="../aviso-de-cookies.html">Aviso de cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <span>© 2026 Novaes, Plantulli e Manzoli Sociedade de Advogados</span>
+      <span class="meta">São Paulo · desde 1989</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
