@@ -14,7 +14,7 @@ Evitar drift de escopo, conteúdo, visual, estrutura e versionamento durante a e
 ## 2. Regra de Escopo
 
 - a v1 deve conter apenas páginas com função institucional clara
-- toda nova página deve responder a uma pergunta: ela melhora posicionamento, clareza ou conversão?
+- toda nova página deve responder a uma pergunta: ela melhora clareza, navegação ou consistência institucional?
 - se a resposta for não, ela entra em backlog e não em execução
 
 ## 3. Regra Editorial
@@ -24,6 +24,7 @@ Evitar drift de escopo, conteúdo, visual, estrutura e versionamento durante a e
 - o tom deve ser sóbrio, técnico e seguro
 - evitar adjetivação inflada, autopromoção vaga e promessas indiretas de resultado
 - a home não deve absorver todo o conteúdo do site
+- toda nova copy institucional deve ser revisada também à luz de `CHECKLIST-ETICO-COPY.md`
 
 ## 4. Regra de Distribuição de Conteúdo
 
@@ -31,7 +32,7 @@ Evitar drift de escopo, conteúdo, visual, estrutura e versionamento durante a e
 - escritório: história, diferenciais, entidades e visão institucional
 - áreas: escopo, forma de atuação, equipe relacionada e CTA
 - profissionais: formação, atuação, entidades, idiomas e contato
-- publicações: autoridade, atualidade e aprofundamento técnico
+- publicações: base factual, atualidade e aprofundamento técnico
 
 ## 5. Regra de Estrutura
 
@@ -66,6 +67,7 @@ Evitar drift de escopo, conteúdo, visual, estrutura e versionamento durante a e
 ## 9. Regra Jurídica e de Conformidade
 
 - conteúdo institucional deve respeitar o perfil ético da advocacia
+- páginas, bios, CTAs, snippets e publicações devem seguir a régua permanente definida em `CHECKLIST-ETICO-COPY.md`
 - políticas jurídicas não devem ficar com placeholder ao final da v1
 - dados de contato, endereço e identidade institucional devem ser revisados antes de publicação
 
@@ -83,6 +85,7 @@ Antes de considerar uma sprint concluída, revisar:
 - coerência com o roadmap
 - aderência à estrutura oficial
 - aderência ao tom editorial
+- aderência ao `CHECKLIST-ETICO-COPY.md`
 - aderência à linguagem visual
 - ausência de placeholder crítico
 

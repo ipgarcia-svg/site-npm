@@ -29,8 +29,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Replaced em dashes with en dashes across the active site base, governance documents, and text-based assets for typographic consistency.
 - Added meta descriptions, canonical links, Open Graph tags, and favicon references across the active public pages.
 - Aligned the legal pages with the official office navigation and softened temporary labels to a more publication-ready institutional wording.
+- Rewrote `politica-de-privacidade.html` and `aviso-de-cookies.html` into publication-ready versions aligned with the current technical reality of the site and a cleaner LGPD-oriented disclosure structure.
 - Updated project documentation to reflect that `escritorio.html` is already part of the active v1 base.
 - Updated the roadmap status to show Sprint 2 as complete and Sprint 3 as in progress.
+- Refined institutional copy across the home page, office page, selected practice pages, and profile pages to reduce promotional tone and improve alignment with the ethical communication standards expected for law firms.
+- Standardized practice-page CTAs and softened additional implicit promotional wording across institutional, practice, and professional profile pages.
+- Added `CHECKLIST-ETICO-COPY.md` and linked it into the project's governance documents so future copy review follows an explicit ethical and editorial standard.
+- Harmonized older governance wording to remove residual emphasis on conversion or authority-building in project rules.
 
 ### Planned
 

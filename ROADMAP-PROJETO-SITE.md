@@ -9,7 +9,7 @@ Transformar a base atual do novo site NPM em um site institucional publicável, 
 - o site novo deve evoluir a partir da base oficial já publicada no repositório
 - o escopo da v1 deve ser suficiente para publicação, sem inflar páginas por ansiedade de completude
 - conteúdo institucional deve ser sóbrio, verificável e compatível com o perfil de um escritório de advocacia
-- novos elementos só entram se melhorarem clareza, autoridade ou conversão
+- novos elementos só entram se melhorarem clareza, navegação ou consistência institucional
 - toda expansão deve respeitar as regras de governança do projeto
 
 ## Base Oficial Atual
@@ -46,8 +46,9 @@ Transformar a base atual do novo site NPM em um site institucional publicável, 
 As regras para evitar drift estão consolidadas em:
 
 - `REGRAS-ANTIDRIFT.md`
+- `CHECKLIST-ETICO-COPY.md`
 
-Esse documento deve ser tratado como referência obrigatória para decisões de conteúdo, estrutura, estilo e versionamento.
+Esses documentos devem ser tratados como referência obrigatória para decisões de conteúdo, estrutura, estilo, copy institucional e versionamento.
 
 ---
 

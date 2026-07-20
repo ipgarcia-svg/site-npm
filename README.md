@@ -37,6 +37,7 @@ aviso-de-cookies.html
 
 - `ROADMAP-PROJETO-SITE.md`
 - `REGRAS-ANTIDRIFT.md`
+- `CHECKLIST-ETICO-COPY.md`
 - `SPRINT-2-ESCOPO-V1.md`
 - `MATRIZ-DE-CONTEUDO-V1.md`
 - `MATRIZ-INTERNA-AREAS-EQUIPE.md`
@@ -61,6 +62,7 @@ Como o projeto é estático nesta fase, basta abrir `index.html` localmente no n
 - páginas de profissionais ficam em `profissionais/`
 - CSS, JS e imagens ficam em `assets/`
 - mudanças de escopo e governança devem respeitar `REGRAS-ANTIDRIFT.md`
+- mudanças de copy institucional, CTA, bios e publicações devem respeitar `CHECKLIST-ETICO-COPY.md`
 
 ## Próxima Sprint Recomendada
 
