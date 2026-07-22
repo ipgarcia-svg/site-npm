@@ -48,14 +48,13 @@ aviso-de-cookies.html
 
 - `legacy/`: arquivos históricos preservados como referência
 - `source-assets/`: materiais brutos, rascunhos e insumos locais
-- `dossie/`: pesquisa nominal interna e respectivas fontes, mantida localmente
-  e excluída do deploy
+- `dossie/`: pesquisa nominal interna e respectivas fontes, mantida localmente e fora da árvore versionada
 
-Essas pastas não fazem parte do núcleo versionado do site publicado.
+Essas pastas não fazem parte do núcleo versionado do site. Consequentemente, ficam fora de publicações e deploys produzidos a partir do conteúdo do repositório. Servir diretamente a pasta de trabalho local exige conferir separadamente quais diretórios estão sendo expostos.
 
 ## Como Visualizar
 
-Como o projeto é estático nesta fase, basta abrir `index.html` localmente no navegador ou servir a pasta com um servidor estático simples.
+Como o projeto é estático nesta fase, basta abrir `index.html` localmente no navegador ou servir a pasta com um servidor estático simples. Ao servir a pasta de trabalho inteira, não expor diretórios locais ignorados pelo Git.
 
 ## Convenções
 
