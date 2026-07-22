@@ -72,7 +72,7 @@ Evitar drift de escopo, conteúdo, visual, estrutura e versionamento durante a e
 ## 10. Regra de Git e Versionamento
 
 - o repositório principal deve refletir apenas a base ativa
-- `legacy/` e `source-assets/` permanecem fora do versionamento principal, salvo decisão expressa
+- `legacy/`, `source-assets/` e `dossie/` permanecem fora do versionamento principal, salvo decisão expressa acompanhada de revisão do escopo de deploy
 - cada commit deve representar uma unidade clara de progresso
 - mudanças estruturais grandes não devem ser misturadas com microajustes irrelevantes
 

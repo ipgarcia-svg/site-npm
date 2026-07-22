@@ -48,6 +48,8 @@ aviso-de-cookies.html
 
 - `legacy/`: arquivos históricos preservados como referência
 - `source-assets/`: materiais brutos, rascunhos e insumos locais
+- `dossie/`: pesquisa nominal interna e respectivas fontes, mantida localmente
+  e excluída do deploy
 
 Essas pastas não fazem parte do núcleo versionado do site publicado.
 
