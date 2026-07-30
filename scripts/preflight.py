@@ -39,7 +39,7 @@ def paginas_publicas():
 
 
 def rel(p):
-    return os.path.relpath(p, RAIZ)
+    return os.path.relpath(p, RAIZ).replace(os.sep, "/")
 
 
 def texto_visivel(fonte_html):

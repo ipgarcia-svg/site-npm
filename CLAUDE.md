@@ -51,13 +51,13 @@ Régua única em mono, caps, sobre filete, imediatamente acima do h1
 ## 4. Preflight (obrigatório antes de qualquer commit)
 
 ```bash
-python3 scripts/preflight.py --tolerar F4
+python3 scripts/preflight.py
 ```
 
 - Exit ≠ 0 bloqueia o commit. Nenhum PR mergeia fazendo o preflight
   regredir em relação à sua base.
-- Tolerância vigente: `F4` (cota de eyebrows), débito declarado da Fase 2
-  do `ROADMAP-ANTI-IA.md` — remova a tolerância no PR daquela fase.
+- Não há tolerância genérica vigente. Exceções pontuais de `F4`, já aprovadas
+  pela regra do ADR-010, ficam justificadas dentro do próprio preflight.
 - W6 (triagem ética) é apoio mecânico; a revisão final de copy é sempre pela
   régua do `06_agente_revisor_etico_oab` do templates-npm, com registro
   componente → risco → norma no PR.
